@@ -273,3 +273,10 @@ h3 {
   .site-header .container { width: calc(100% - 1.5rem); }
   .btn { padding: 0.5rem 0.7rem; font-size: 0.9rem; }
 }
+/* Hide top-right name button on mobile */
+@media (max-width: 500px) {
+  .site-header .btn[aria-label="Go to top"] {
+    display: none;
+  }
+}
+
