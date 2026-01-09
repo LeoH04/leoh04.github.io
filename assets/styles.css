@@ -48,6 +48,18 @@ body.has-bg::after {
   margin: 0 auto;
 }
 
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  color: #111;
+  border-radius: 10px;
+}
+.skip-link:focus { left: 1rem; top: 1rem; z-index: 1000; }
+
 /* Header */
 .site-header {
   position: sticky;
@@ -55,8 +67,10 @@ body.has-bg::after {
   backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.35);
   border-bottom: 1px solid var(--border);
+  z-index: 10;
 }
 
+/* Option B: only header goes full width */
 .site-header .container {
   width: calc(100% - 2.5rem);
   max-width: none;
@@ -67,18 +81,22 @@ body.has-bg::after {
   justify-content: space-between;
   align-items: center;
   padding: 0.9rem 0;
+  gap: 1rem;
 }
 
 .brand {
   color: var(--text);
   text-decoration: none;
   font-weight: 650;
+  letter-spacing: -0.02em;
 }
 
+/* Nav */
 .nav {
   display: flex;
   gap: 0.75rem;
   align-items: center;
+  flex-wrap: nowrap;
 }
 
 .nav-link {
@@ -101,6 +119,7 @@ body.has-bg::after {
 .icon {
   width: 18px;
   height: 18px;
+  color: var(--text);
 }
 
 .btn {
@@ -113,6 +132,10 @@ body.has-bg::after {
   font-size: 0.95rem;
 }
 
+.btn:hover { filter: brightness(0.96); }
+.btn:focus-visible { outline: 3px solid rgba(255,255,255,0.6); outline-offset: 2px; }
+
+/* Main content */
 .hero {
   padding: 5.2rem 0 2.2rem;
 }
@@ -120,16 +143,25 @@ body.has-bg::after {
 h1 {
   font-size: clamp(2.3rem, 4.2vw, 3.4rem);
   margin: 0 0 0.9rem;
+  letter-spacing: -0.04em;
 }
 
 .lead {
   color: var(--muted);
   font-size: 1.12rem;
+  margin: 0;
+  max-width: 70ch;
 }
 
 .section {
   padding: 2.25rem 0;
   border-top: 1px solid var(--border);
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.01em;
 }
 
 .footer {
@@ -139,7 +171,7 @@ h1 {
   font-size: 0.95rem;
 }
 
-/* 🔑 Minimal footer links (no blue) */
+/* Minimal footer links (no blue) */
 .footer a {
   color: inherit;
   text-decoration: none;
@@ -148,4 +180,10 @@ h1 {
 .footer a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* Mobile tweak */
+@media (max-width: 520px) {
+  .site-header .container { width: calc(100% - 1.5rem); }
+  .btn { padding: 0.5rem 0.7rem; font-size: 0.9rem; }
 }
