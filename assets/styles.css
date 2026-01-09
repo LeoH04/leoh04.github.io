@@ -150,7 +150,25 @@ h1 {
   color: var(--muted);
   font-size: 1.12rem;
   margin: 0;
-  max-width: 70ch;
+  max-width: 75ch;
+}
+
+.quick {
+  margin-top: 1.15rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.18);
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.85);
 }
 
 .section {
@@ -160,10 +178,74 @@ h1 {
 
 h2 {
   font-size: 1.1rem;
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.9rem;
   letter-spacing: -0.01em;
 }
 
+h3 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+/* Lists */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.item {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item-head {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.item-title {
+  font-weight: 650;
+}
+
+.item-meta {
+  color: rgba(255,255,255,0.70);
+  font-size: 0.95rem;
+}
+
+.item-text {
+  margin: 0.5rem 0 0;
+  color: rgba(255,255,255,0.82);
+  max-width: 80ch;
+}
+
+/* Skills grid cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(0,0,0,0.18);
+  padding: 1rem;
+}
+
+.card p {
+  margin: 0.35rem 0 0;
+  color: rgba(255,255,255,0.80);
+}
+
+/* Footer */
 .footer {
   padding: 1.5rem 0 2.5rem;
   border-top: 1px solid var(--border);
@@ -182,7 +264,11 @@ h2 {
   text-underline-offset: 3px;
 }
 
-/* Mobile tweak */
+/* Mobile */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 520px) {
   .site-header .container { width: calc(100% - 1.5rem); }
   .btn { padding: 0.5rem 0.7rem; font-size: 0.9rem; }
