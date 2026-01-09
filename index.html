@@ -3,77 +3,64 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Personal website of Your Name." />
-    <title>Your Name</title>
+    <meta name="description" content="Leonard Hegemann – personal website." />
+    <title>Leonard Hegemann</title>
 
     <link rel="stylesheet" href="assets/styles.css" />
-
-    <!-- Nice-to-have: simple social preview defaults -->
-    <meta property="og:title" content="Your Name" />
-    <meta property="og:description" content="Personal website of Your Name." />
-    <meta property="og:type" content="website" />
   </head>
 
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-
     <header class="site-header">
       <div class="container header-row">
-        <a class="brand" href="#top" aria-label="Go to top">
-          Your Name
-        </a>
+        <a class="brand" href="#top">Leonard Hegemann</a>
 
-        <nav class="nav" aria-label="Top navigation">
-          <!-- Replace these URLs with yours -->
-          <a href="https://www.linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noreferrer">GitHub</a>
-
-          <!-- CV download -->
-          <a class="btn" href="assets/cv.pdf" download="YourName-CV.pdf">Download CV</a>
+        <nav class="nav">
+          <a href="https://www.linkedin.com/in/leonard-hegemann-b98a2a2b8/" target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+          <a href="https://github.com/LeoH04" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a class="btn" href="assets/cv.pdf" download="Leonard-Hegemann-CV.pdf">
+            Download CV
+          </a>
         </nav>
       </div>
     </header>
 
-    <main id="main" class="container" tabindex="-1">
-      <section class="hero" id="top">
-        <h1>Hi, I’m <span class="accent">Your Name</span>.</h1>
+    <main class="container" id="top">
+      <section class="hero">
+        <h1>Leonard Hegemann</h1>
+
         <p class="lead">
-          Minimal one-page site. Short bio goes here — what you do, what you’re focused on, and what you’re looking for.
+          Software developer with an interest in building clean, efficient, and scalable solutions.
         </p>
 
         <div class="cta-row">
-          <a class="btn" href="assets/cv.pdf" download="YourName-CV.pdf">Download CV</a>
-          <a class="link" href="mailto:you@example.com">you@example.com</a>
+          <a class="btn" href="assets/cv.pdf" download="Leonard-Hegemann-CV.pdf">
+            Download CV
+          </a>
         </div>
       </section>
 
-      <section class="section" aria-label="About">
+      <section class="section">
         <h2>About</h2>
         <p>
-          Write 3–5 lines about yourself. Keep it simple: your role, interests, and what you’re building.
+          I focus on practical software development, learning by building, and continuously improving my technical
+          skills. This site is a minimal hub linking to my work and experience.
         </p>
-      </section>
-
-      <section class="section" aria-label="Highlights">
-        <h2>Highlights</h2>
-        <ul class="list">
-          <li><span class="dot" aria-hidden="true"></span> Project/achievement #1 (with impact)</li>
-          <li><span class="dot" aria-hidden="true"></span> Project/achievement #2</li>
-          <li><span class="dot" aria-hidden="true"></span> Project/achievement #3</li>
-        </ul>
       </section>
 
       <footer class="footer">
         <p>
-          © <span id="year"></span> Your Name ·
-          <a href="https://www.linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noreferrer">LinkedIn</a> ·
-          <a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noreferrer">GitHub</a>
+          © <span id="year"></span> Leonard Hegemann ·
+          <a href="https://www.linkedin.com/in/leonard-hegemann-b98a2a2b8/" target="_blank">LinkedIn</a> ·
+          <a href="https://github.com/LeoH04" target="_blank">GitHub</a>
         </p>
       </footer>
     </main>
 
     <script>
-      // tiny enhancement: current year
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
