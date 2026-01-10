@@ -107,8 +107,9 @@ body.has-bg::after {
 }
 
 .menu-btn:hover {
-  background: rgba(0,0,0,0.7);
+  filter: brightness(0.96); /* subtle darkening, no color flip */
 }
+
 
 .menu-btn:focus-visible {
   outline: 3px solid rgba(255,255,255,0.6);
