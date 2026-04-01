@@ -322,9 +322,16 @@ h2 {
 
 
 h3 {
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: 0 0 0.5rem;
   letter-spacing: -0.01em;
+}
+
+.chair-label {
+  margin: 0.75rem 0 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.90);
 }
 
 /* Lists */
@@ -363,6 +370,49 @@ h3 {
   margin: 0.5rem 0 0;
   color: rgba(255,255,255,0.82);
   max-width: 80ch;
+}
+
+.experience-timeline {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.experience-entry {
+  display: grid;
+  grid-template-columns: minmax(120px, 160px) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.experience-entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.experience-period {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.experience-content h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.45;
+}
+
+.experience-points {
+  margin: 0.5rem 0 0;
+  padding-left: 1.15rem;
+  color: rgba(255,255,255,0.82);
+}
+
+.experience-points li + li {
+  margin-top: 0.28rem;
 }
 
 /* Skills grid cards */
@@ -406,6 +456,11 @@ h3 {
 /* Mobile */
 @media (max-width: 900px) {
   .grid { grid-template-columns: 1fr; }
+
+  .experience-entry {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
 }
 
 @media (max-width: 520px) {
@@ -434,4 +489,3 @@ h3 {
     bottom: auto;
   }
 }
-
