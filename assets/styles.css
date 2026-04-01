@@ -434,6 +434,90 @@ h3 {
   color: rgba(255,255,255,0.80);
 }
 
+.strengths-panel {
+  margin-top: 1.15rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
+    rgba(0,0,0,0.22);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.18);
+}
+
+.strengths-intro {
+  max-width: 52rem;
+}
+
+.strengths-intro h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1.35rem;
+}
+
+.strengths-intro p {
+  margin: 0;
+  color: rgba(255,255,255,0.78);
+}
+
+.strengths-grid {
+  margin-top: 1.15rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.strength-card {
+  position: relative;
+  min-height: 100%;
+  padding: 1rem 1rem 1.1rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  overflow: hidden;
+}
+
+.strength-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.75), rgba(255,255,255,0.18));
+}
+
+.strength-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.72);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.strength-card h4 {
+  margin: 0.85rem 0 0.45rem;
+  font-size: 1.08rem;
+  letter-spacing: -0.01em;
+}
+
+.strength-card p {
+  margin: 0;
+  color: rgba(255,255,255,0.84);
+}
+
+.strength-proof {
+  margin-top: 0.8rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.66);
+  font-size: 0.92rem;
+}
+
 /* Footer */
 .footer {
   padding: 1.5rem 0 2.5rem;
@@ -456,6 +540,7 @@ h3 {
 /* Mobile */
 @media (max-width: 900px) {
   .grid { grid-template-columns: 1fr; }
+  .strengths-grid { grid-template-columns: 1fr; }
 
   .experience-entry {
     grid-template-columns: 1fr;
