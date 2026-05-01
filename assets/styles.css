@@ -405,6 +405,38 @@ h3 {
   line-height: 1.45;
 }
 
+.entry-title-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.entry-title-link:hover,
+.entry-title-link:focus-visible {
+  color: rgba(255,255,255,0.82);
+}
+
+.entry-action {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 0.75rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.95);
+  font-size: 0.92rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.entry-action:hover,
+.entry-action:focus-visible {
+  background: rgba(255,255,255,0.16);
+  outline: none;
+}
+
 .experience-points {
   margin: 0.5rem 0 0;
   padding-left: 1.15rem;
