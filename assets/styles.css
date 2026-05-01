@@ -405,18 +405,6 @@ h3 {
   line-height: 1.45;
 }
 
-.entry-title-link {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-}
-
-.entry-title-link:hover,
-.entry-title-link:focus-visible {
-  color: rgba(255,255,255,0.82);
-}
-
 .entry-action {
   display: inline-flex;
   width: fit-content;
