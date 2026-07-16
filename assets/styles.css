@@ -431,6 +431,11 @@ h3 {
   color: rgba(255,255,255,0.82);
 }
 
+.experience-description {
+  margin: 0.5rem 0 0;
+  color: rgba(255,255,255,0.82);
+}
+
 .experience-points li + li {
   margin-top: 0.28rem;
 }
