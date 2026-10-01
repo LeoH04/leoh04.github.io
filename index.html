@@ -550,8 +550,27 @@
         "skills",
       ]);
       const terminalCommands = {
-        help: "Available content commands: about, education, work, projects, engagement, scholarship, skills. Interface commands: help, clear.",
+        help: `
+          <div class="help-output">
+            <p class="help-title">Available commands</p>
+            <div class="help-groups">
+              <section class="help-group" aria-label="Content commands">
+                <h3>Content</h3>
+                <ul class="help-command-list">
+                  ${["about", "education", "work", "projects", "engagement", "scholarship", "skills"].map(command => `<li>${command}</li>`).join("")}
+                </ul>
+              </section>
+              <section class="help-group" aria-label="Interface commands">
+                <h3>Interface</h3>
+                <ul class="help-command-list">
+                  ${["help", "clear"].map(command => `<li>${command}</li>`).join("")}
+                </ul>
+              </section>
+            </div>
+            <p class="help-hint">Type a command above.</p>
+          </div>`,
       };
+      const availableCommands = [...contentCommands, ...Object.keys(terminalCommands)];
 
       function runTerminalCommand(rawCommand) {
         const command = rawCommand.trim().toLowerCase();
@@ -585,15 +604,27 @@
 
       }
 
-      document.querySelectorAll("[data-command]").forEach(button => {
-        button.addEventListener("click", () => {
-          terminalInput.value = button.dataset.command;
-          runTerminalCommand(button.dataset.command);
-          terminalInput.focus();
-        });
-      });
-
       terminalInput.addEventListener("keydown", event => {
+        if (event.key === "Tab") {
+          event.preventDefault();
+          const prefix = terminalInput.value.trim().toLowerCase();
+          const matches = availableCommands.filter(command => command.startsWith(prefix));
+          if (!matches.length) return;
+
+          const sharedPrefix = matches.reduce((common, command) => {
+            let length = 0;
+            while (length < common.length && common[length] === command[length]) length += 1;
+            return common.slice(0, length);
+          });
+
+          if (sharedPrefix.length > prefix.length) {
+            terminalInput.value = sharedPrefix;
+          } else {
+            terminalResponse.textContent = matches.join("  ");
+          }
+          return;
+        }
+
         if (event.key === "Enter") runTerminalCommand(terminalInput.value);
       });
 

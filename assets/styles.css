@@ -339,6 +339,17 @@ h1::before {
 .terminal-response { min-height: 1.5rem; margin-top: 0.9rem; line-height: 1.6; }
 .terminal-response a { color: var(--green); }
 
+.help-output { padding: 0.15rem 0 0.2rem; }
+.help-title { margin: 0 0 0.7rem; color: var(--text); }
+.help-title::before { content: "> "; color: var(--green); }
+.help-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+.help-group { padding: 0.2rem 0; }
+.help-group h3 { margin: 0 0 0.55rem; color: var(--amber); font-size: 0.8rem; font-weight: 400; }
+.help-group h3::before { content: "./"; color: var(--dim); }
+.help-command-list { display: grid; gap: 0.2rem; margin: 0; padding: 0; list-style: none; color: var(--green); }
+.help-command-list li::before { content: "$ "; color: var(--dim); }
+.help-hint { margin: 0.8rem 0 0; color: var(--dim); font-size: 0.78rem; }
+
 /* Every content section looks like a command output block. */
 .section {
   padding: 2.7rem 0;
@@ -452,6 +463,7 @@ h2::after { color: var(--dim); content: ".txt"; font-size: 0.82rem; }
   .experience-entry { grid-template-columns: 1fr; gap: 0.4rem; }
   .terminal-body { padding: 0.8rem; }
   .terminal-input { min-width: 0; }
+  .help-groups { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
