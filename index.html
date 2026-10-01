@@ -40,6 +40,8 @@
 
     <header class="site-header">
       <div class="container header-row">
+        <button class="btn theme-toggle" id="themeToggle" type="button" aria-pressed="false">LIGHT MODE</button>
+
         <!-- Top-left drawer opener -->
         <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
           <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -68,6 +70,7 @@
                 stroke-linejoin="round"
               />
             </svg>
+            <span class="nav-label">Email</span>
           </a>
 
           <!-- LinkedIn -->
@@ -85,6 +88,7 @@
                 fill="currentColor"
               />
             </svg>
+            <span class="nav-label">LinkedIn</span>
           </a>
 
           <!-- GitHub -->
@@ -102,6 +106,7 @@
                 fill="currentColor"
               />
             </svg>
+            <span class="nav-label">GitHub</span>
           </a>
 
           <!-- CV -->
@@ -122,6 +127,22 @@
           <span class="pill">Deutschlandstipendium Scholarship</span>
           <span class="pill">AI & Data Science Certificate</span>
         </div>
+
+        <section class="terminal-card" aria-labelledby="terminal-title">
+          <div class="terminal-bar">
+            <span class="terminal-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span id="terminal-title">leonard@portfolio:~</span>
+            <span class="terminal-state">ONLINE</span>
+          </div>
+          <div class="terminal-body">
+            <p class="terminal-output">Welcome. Type help to see available commands.</p>
+            <div class="terminal-command-row">
+              <span class="terminal-prompt" aria-hidden="true">$</span>
+              <input id="terminalInput" class="terminal-input" type="text" inputmode="text" autocomplete="off" spellcheck="false" aria-label="Terminal command" placeholder="type a command" />
+            </div>
+            <div id="terminalResponse" class="terminal-response" aria-live="polite"></div>
+          </div>
+        </section>
       </section>
 
       <section class="section" id="about" aria-label="About">
@@ -513,6 +534,73 @@
       // Close drawer after selecting a section
       drawer.querySelectorAll("a").forEach(a => {
         a.addEventListener("click", () => closeDrawer());
+      });
+
+      // The terminal is the only content interface. Render one requested section at a time.
+      const terminalInput = document.getElementById("terminalInput");
+      const terminalResponse = document.getElementById("terminalResponse");
+      const themeToggle = document.getElementById("themeToggle");
+      const contentCommands = new Set([
+        "about",
+        "education",
+        "work",
+        "projects",
+        "engagement",
+        "scholarship",
+        "skills",
+      ]);
+      const terminalCommands = {
+        help: "Available content commands: about, education, work, projects, engagement, scholarship, skills. Interface commands: help, clear.",
+      };
+
+      function runTerminalCommand(rawCommand) {
+        const command = rawCommand.trim().toLowerCase();
+        if (!command) return;
+        terminalResponse.replaceChildren();
+        terminalInput.value = "";
+        if (command === "clear") {
+          return;
+        }
+
+        const sourceSection = contentCommands.has(command)
+          ? document.getElementById(command)
+          : null;
+        if (sourceSection) {
+          const renderedSection = sourceSection.cloneNode(true);
+          renderedSection.removeAttribute("id");
+          renderedSection.classList.add("terminal-rendered-section");
+          terminalResponse.replaceChildren(renderedSection);
+        } else if (terminalCommands[command]) {
+          terminalResponse.innerHTML = terminalCommands[command];
+        } else {
+          const safeCommand = command.replace(/[&<>"']/g, character => ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;",
+          }[character]));
+          terminalResponse.textContent = "404. Try help.";
+        }
+
+      }
+
+      document.querySelectorAll("[data-command]").forEach(button => {
+        button.addEventListener("click", () => {
+          terminalInput.value = button.dataset.command;
+          runTerminalCommand(button.dataset.command);
+          terminalInput.focus();
+        });
+      });
+
+      terminalInput.addEventListener("keydown", event => {
+        if (event.key === "Enter") runTerminalCommand(terminalInput.value);
+      });
+
+      themeToggle.addEventListener("click", () => {
+        const isLight = document.body.classList.toggle("light-mode");
+        themeToggle.setAttribute("aria-pressed", String(isLight));
+        themeToggle.textContent = isLight ? "DARK MODE" : "LIGHT MODE";
       });
     </script>
   </body>
