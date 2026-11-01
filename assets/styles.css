@@ -289,7 +289,8 @@ h1::before {
   text-align: center;
 }
 
-.not-found-page {
+.container.not-found-page {
+  width: min(calc(100% - 1.2rem), 52rem);
   max-width: 52rem;
   text-align: center;
   padding-block: clamp(2rem, 8vw, 6rem);
