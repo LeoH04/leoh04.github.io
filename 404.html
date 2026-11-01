@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>404 · Leonard Hegemann</title>
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body class="has-bg">
+    <main class="container not-found-page" id="main">
+      <p class="not-found-label">404 · page not found</p>
+      <h1>That route does not exist.</h1>
+      <p class="lead">Here is a small proof while you find your way back.</p>
+      <section class="proof-404" aria-labelledby="proof-title">
+        <p>Suppose there are \(M\) models predicting the true value \(y_0\), and let \(\hat y_j\) be model \(j\)'s prediction.</p>
+        <p class="proof-equation">\[c = \frac{1}{M}\sum_{j=1}^{M}\hat y_j\]</p>
+        <p>Let the ensemble prediction be the average of the (M) model predictions:</p>
+        <p class="proof-equation">\[c = \frac{1}{M}\sum_{j=1}^{M}\hat y_j.\]</p>
+        <p>We begin with the average error of the individual models:</p>
+        <p class="proof-equation">\[\operatorname{MSPE}_{\mathrm{individual}} = \frac{1}{M}\sum_{j=1}^{M}(y_0-\hat y_j)^2.\]</p>
+        <p>Adding and subtracting the average prediction inside each squared error gives</p>
+        <p class="proof-equation">\[\begin{aligned}
+          \operatorname{MSPE}_{\mathrm{individual}}
+          &= \frac{1}{M}\sum_{j=1}^{M}\left[(y_0-c)+(c-\hat y_j)\right]^2 \\
+          &= (y_0-c)^2 + \frac{1}{M}\sum_{j=1}^{M}(c-\hat y_j)^2
+          + \frac{2(y_0-c)}{M}\sum_{j=1}^{M}(c-\hat y_j).
+        \end{aligned}\]</p>
+        <p>The last term disappears because the deviations from their average sum to zero:</p>
+        <p class="proof-equation">\[\sum_{j=1}^{M}(c-\hat y_j) = Mc-\sum_{j=1}^{M}\hat y_j = 0.\]</p>
+        <p>So the decomposition becomes</p>
+        <p class="proof-equation">\[\operatorname{MSPE}_{\mathrm{individual}} = (y_0-c)^2 + \underbrace{\frac{1}{M}\sum_{j=1}^{M}(\hat y_j-c)^2}_{\text{diversity}}.\]</p>
+        <p>The first term is the squared error of the ensemble prediction. Rearranging therefore gives</p>
+        <p class="proof-equation">\[\boxed{\operatorname{MSPE}_{\mathrm{ensemble}} = \operatorname{MSPE}_{\mathrm{individual}} - \text{diversity}}.\]</p>
+        <p class="proof-conclusion">Therefore, holding individual-model MSPE fixed, more diversity means lower ensemble MSPE: this is the wisdom of the crowd.</p>
+      </section>
+      <p class="not-found-return"><a href="/">Return to start</a></p>
+    </main>
+    <script>
+      window.MathJax = { tex: { inlineMath: [["\\(", "\\)"]] } };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </body>
+</html>

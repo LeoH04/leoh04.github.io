@@ -255,6 +255,42 @@ h1::before {
 .terminal-response { min-height: 1.5rem; margin-top: 0.9rem; line-height: 1.6; }
 .terminal-response a { color: var(--green); }
 
+.proof-404 {
+  margin: 1.2rem 0 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.proof-404 p { max-width: 92ch; }
+
+.proof-equation {
+  overflow-x: auto;
+  padding: 0.45rem 0;
+}
+
+.proof-conclusion {
+  border-left: 3px solid var(--green);
+  padding-left: 0.8rem;
+}
+
+.not-found-return {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.not-found-page {
+  padding-block: clamp(2rem, 8vw, 6rem);
+}
+
+.not-found-page h1 { margin-bottom: 0.5rem; }
+
+.not-found-page .proof-404 { margin-top: 2rem; }
+
+.terminal-proof { margin-top: 0; }
+
+.terminal-proof .not-found-label { margin-top: 0; }
+
 .help-output { padding: 0.15rem 0 0.2rem; }
 .help-title { margin: 0 0 0.7rem; color: var(--text); }
 .help-title::before { content: "> "; color: var(--green); }
