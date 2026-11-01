@@ -264,6 +264,16 @@ h1::before {
 
 .proof-404 p { max-width: 92ch; }
 
+.proof-404 > h1 { margin-bottom: 0.6rem; }
+
+.proof-404 > .lead {
+  margin: 0 0 2rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.proof-404 > .lead::before { content: none; }
+
 .proof-equation {
   overflow-x: auto;
   padding: 0.45rem 0;

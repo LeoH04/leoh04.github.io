@@ -499,7 +499,9 @@
       };
       const availableCommands = [...contentCommands, ...Object.keys(terminalCommands)];
       const proof404 = `
-        <section class="proof-404 terminal-proof" aria-labelledby="proof-404-title">
+        <section class="proof-404 terminal-proof">
+          <h1>That route does not exist.</h1>
+          <p class="lead">Here is a small proof while you find your way back.</p>
           <p>Suppose there are \\(M\\) models predicting the true value \\(y_0\\), and let \\(\\hat y_j\\) be model \\(j\\)'s prediction.</p>
           <p>Let the ensemble prediction be the average of the M model predictions:</p>
           <p class="proof-equation">\\[c = \\frac{1}{M}\\sum_{j=1}^{M}\\hat y_j.\\]</p>
