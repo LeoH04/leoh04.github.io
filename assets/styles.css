@@ -290,8 +290,12 @@ h1::before {
 }
 
 .not-found-page {
+  max-width: 52rem;
+  text-align: center;
   padding-block: clamp(2rem, 8vw, 6rem);
 }
+
+.not-found-page .proof-404 { text-align: left; }
 
 .not-found-page h1 { margin-bottom: 0.5rem; }
 
